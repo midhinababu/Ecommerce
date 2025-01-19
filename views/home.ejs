@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+    <title>Home</title>
+</head>
+<body><div></div>
+    <div style="
+background-image: url('https://img.freepik.com/free-photo/cyber-monday-retail-sales_23-2148688493.jpg?w=1380&t=st=1679486455~exp=1679487055~hmac=04b51178d1daecbe38466b42d75dace461b60c34a6f0aeca12403edae630c08b'); 
+width :100%; 
+height: 1000px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover; 
+background-attachment: fixed;">
+   <div class="fixed-top">
+    <div class="d-flex flex-row bd-highlight justify-content-end bg-light">
+            <div class="p-4 bd-highlight"><a href="/admin" class="text-decoration-none fs-4 text-dark"> Home</a></div>
+            <div class="p-4 bd-highlight"><a href="/" class="text-decoration-none fs-4 text-dark"> Products</a></div>
+            <div class="p-4 bd-highlight"><a href="#login"  data-target="#login" class="text-decoration-none fs-4 text-dark">Log In</a></div>
+            <div class="divider bg-secondary"><hr></div>
+        </div>
+       
+      </div>
+    <div class="text-center col-6 fw-bold position-absolute top-50 start-0"> 
+    <h1 class="fs-1 d-flex text-dark mx-auto position-static justify-content-center"> Shopping Cart</h1><br>
+    <h5  style="font-family: cursive;"class="fst-italic">Enjoy Shopping and Get Anything You Want</h5>
+    </div>
+   </div> 
+
+   <div class="container-fluid form-group mt-5 col-md-5 col-lg-4" id="login"  aria-labelledby="login" >
+    <form class="form-control" method="POST" id="loginform" action="/home">
+        <h3 class="text-center text-dark mt-5">Sign In</h3>
+        <div class="mt-5">  
+            <% if(loginERR){ %>
+            <p class="text-danger ">Invalid Username Or Password !</p><br><% } %>
+            <input type="text" class="form-control" name="uname" placeholder="User Name">
+        </div>
+        <div class="mt-4">
+            <input type="password"  class="form-control" name="password" placeholder="Password">
+        </div>
+        <div class="mt-5 text-center p-5">
+        <button type="submit" class="btn btn-primary rounded-pill px-5 py-2" >Sign In</button>
+        <br><br>
+       <a href="/register">create Account</a>
+    </div>
+
+
+</body>
+<!-- <script>
+    document.getElementById("loginform").addEventListener("submit",(event)=>{
+        event.preventDefault();
+    });
+
+</script> -->
+</html>

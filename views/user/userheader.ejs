@@ -1,0 +1,51 @@
+<header class="bg-dark ">
+
+  <div class="d-flex flex-row  justify-content-end bd-highlight">
+
+    <div class="p-4 bd-highlight"><a href="/home" class="text-decoration-none fs-5 text-white"> Home</a></div>
+    <div class="p-4 bd-highlight"><a href="/user/cart" class="text-decoration-none fs-5 text-white"> Cart</a>
+      <% if(typeof (cartitemcount)!='undefined' ){%>
+        <span class="badge badge-white position-absolute  badge-pill">
+          <%= cartitemcount %>
+        </span>
+        <% }else {%>
+          <span class="badge badge-white position-absolute  badge-pill">0</span>
+          <% } %>
+
+    </div>
+    <% if(typeof (user)!='undefined' ) {%>
+      <div class="p-4 bd-highlight"><a href="/user/orders" class="text-decoration-none fs-5 text-white"> Orders</a>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-dark fs-5"> <i class="bi-person-fill text-white fs-5"></i>
+          <%= user %>
+        </button>
+        <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu bg-dark">
+          <li><a class="dropdown-item bg-dark text-white" href="/logout">Logout</a></li>
+
+        </ul>
+      </div>
+      <% }else{ %>
+
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-dark fs-5"> <i
+              class="bi-person-fill text-white fs-5"></i>Account</button>
+          <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu bg-dark">
+            <li><a class="dropdown-item bg-dark text-white" href="/home#login">Log In</a></li>
+
+          </ul>
+        </div>
+
+        <% } %>
+  </div>
+</header>

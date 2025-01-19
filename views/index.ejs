@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script> -->
+    <title>Products</title>
+</head>
+
+<body>
+    <%- include('user/userheader.ejs') %>
+    <!-- <header class="bg-dark ">
+
+        <div class="d-flex flex-row  justify-content-end bd-highlight">
+
+            <div class="p-4 bd-highlight"><a href="/home" class="text-decoration-none fs-5 text-white"> Home</a></div>
+            <div class="p-4 bd-highlight"><a href="/user/cart" class="text-decoration-none fs-5 text-white"> Cart</a><span class="badge badge-white position-absolute  badge-pill"><%= cartitemcount %></span></div>
+            <% if(user) {%>
+            <div class="p-4 bd-highlight"><a href="#" class="text-decoration-none fs-5 text-white"> Orders</a></div>
+          
+            <div class="btn-group">
+                <button type="button" class="btn btn-dark fs-5"> <i class="bi-person-fill text-white fs-5"></i>  <%= user %></button>
+                <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu bg-dark">
+                  <li><a class="dropdown-item bg-dark text-white" href="/logout">Logout</a></li>
+                 
+                </ul>
+              </div>
+              <% }else{ %>
+
+              
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark fs-5"> <i class="bi-person-fill text-white fs-5"></i>Account</button>
+                    <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu bg-dark">
+                      <li><a class="dropdown-item bg-dark text-white" href="/home#login">Log In</a></li>
+                     
+                    </ul>
+                  </div>        
+
+                <% } %>
+             </div>
+    </header> -->
+
+
+
+    <div class="container-fluid  justify-content-center row">
+
+        <% for (let i=0;i<products.length;i++) {%>
+
+            <div class="card m-5 d-flex col-lg-2 col-md-5 col-sm-4">
+                <div class="card-body">
+                    <img class="img-fluid" src=<%=products[i].prdtphoto %>
+                    class="card-img-top" alt="..." height="190">
+                    <div class="card-title ">
+
+
+
+                    
+
+
+                            <h3 class="text-center">
+                                <%= products[i].pname %>
+                            </h3>
+                            <div class="m-1">
+                                <p class="p-1">
+                                    <%= products[i].pdescription %>
+                                </p>
+                            </div>
+                            <h4 class="text-center"> $
+                                <%= products[i].price %>
+                            </h4>
+
+                            
+
+                            <a href="/user/singleprdt/<%= products[i]._id %>" class="btn btn-primary mx-md-0 mx-sm-0 d-flex mx-5 d-flex justify-content-center">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <% }%>
+                <!-- <div class="card d-flex ms-5 mt-5 col-lg-3 col-md-5 col-sm-4">
+            <div class="card-body">
+                
+                    class="card-img-top" alt="...">
+                <div class="card-title ">
+                    <H3>Card Title 2</H3>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, provident
+                        officiis, magni assumenda porro, facilis omnis repellat exercitationem ullam obcaecati fugiat.
+                        Tempora dolores odio rem facere veritatis totam alias eum.</p>
+                    <a href="#" class="btn btn-primary">Add</a>
+                </div>
+            </div>
+        </div> -->
+
+                <!-- <div class="card d-flex ms-5 mt-5 col-lg-3 col-md-5 col-sm-4">
+            <div class="card-body">
+                <img src="https://cdn.shopify.com/s/files/1/2286/5823/products/556960819101375417_800x.jpg?v=1527193713"
+                    class="card-img-top" alt="...">
+                <div class="card-title ">
+                    <H3>Card Title 3</H3>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, provident
+                        officiis, magni assumenda porro, facilis omnis repellat exercitationem ullam obcaecati fugiat.
+                        Tempora dolores odio rem facere veritatis totam alias eum.</p>
+                    <a href="#" class="btn btn-primary">Add</a>
+                </div>
+            </div>
+        </div> -->
+
+                <!-- <div class="card d-flex ms-5  mt-5 col-lg-3 col-md-5 col-sm-4">
+            <div class="card-body">
+                <img src="https://cdn.shopify.com/s/files/1/2286/5823/products/556960819101375417_800x.jpg?v=1527193713"
+                    class="card-img-top" alt="...">
+                <div class="card-title ">
+                    <H3>Card Title 4</H3>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, provident
+                        officiis, magni assumenda porro, facilis omnis repellat exercitationem ullam obcaecati fugiat.
+                        Tempora dolores odio rem facere veritatis totam alias eum.</p>
+                    <a href="#" class="btn btn-primary">Add</a>
+                </div>
+            </div>
+        </div> -->
+
+                <!-- <div class="card d-flex ms-5 mt-5 col-lg-3 col-md-5 col-sm-4">
+            <div class="card-body">
+                <img src="https://cdn.shopify.com/s/files/1/2286/5823/products/556960819101375417_800x.jpg?v=1527193713"
+                    class="card-img-top" alt="...">
+                <div class="card-title ">
+                    <H3>Card Title 5</H3>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, provident
+                        officiis, magni assumenda porro, facilis omnis repellat exercitationem ullam obcaecati fugiat.
+                        Tempora dolores odio rem facere veritatis totam alias eum.</p>
+                    <a href="#" class="btn btn-primary">Add</a>
+                </div>
+            </div>
+        </div> -->
+                <!-- 
+        <div class="card d-flex ms-5 mt-5 col-lg-3 col-md-5 col-sm-4">
+            <div class="card-body">
+                <img src="https://cdn.shopify.com/s/files/1/2286/5823/products/556960819101375417_800x.jpg?v=1527193713"
+                    class="card-img-top" alt="...">
+                <div class="card-title ">
+                    <H3>Card Title 5</H3>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, provident
+                        officiis, magni assumenda porro, facilis omnis repellat exercitationem ullam obcaecati fugiat.
+                        Tempora dolores odio rem facere veritatis totam alias eum.</p>
+                    <a href="#" class="btn btn-primary">Add</a>
+                </div>
+            </div>
+        </div> -->
+
+        
+</div>
+</body>
+</html>

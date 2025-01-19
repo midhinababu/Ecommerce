@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Single Products</title>
+</head>
+
+<body>
+
+    <%- include('userheader.ejs') %>
+
+        <div class="d-flex justify-content-center m-5">
+            <div class="col-md-4 m-5">
+                <h5>Delivery Details</h5>
+                <form id="checkoutform">
+                    <div class="form-group">
+                        <br>
+
+                        <input type="text"
+                            class="form-control border border-dark border-top-0 border-end-0 border-start-0"
+                            placeholder="Enter Name" name="name">
+                    </div> <br>
+                    <div class="form-group">
+
+                        <input type="text" class="form-control  border-dark border-top-0 border-end-0 border-start-0"
+                            placeholder="Enter Delivery Address" name="address">
+                    </div> <br>
+                    <div class="form-group">
+
+                        <input type="email" class="form-control border-dark border-top-0 border-end-0 border-start-0"
+                            placeholder="Enter Email"  name="email">
+                    </div> <br>
+                    <div class="form-group">
+
+                        <input type="text" class="form-control border-dark border-top-0 border-end-0 border-start-0"
+                            placeholder="Enter Mobile Number"  name="mobno">
+                    </div> <br>
+                    <!-- <div class="form-group">
+
+                        <input type="text" class="form-control border-dark border-top-0 border-end-0 border-start-0"
+                            placeholder="user_id" name="id" >
+                    </div> <br> -->
+
+
+
+
+            </div>
+
+            <div class="col-md-4 m-5 fs-4">
+
+                <% if(typeof (cartamount[0].total)!='undefined'){%>
+                    <h3> Total Ammount : $ <%= cartamount[0].total %>
+                    </h3>
+                    <% }else{ %>
+                        <h3> Total Ammount :0</h3>
+                        <% } %>
+                <hr>
+                <p class="fs-3">Payment Method </p>
+                <div class="form-group mx-3">
+                    <input type="radio" name="payment_type" value="cod">
+                    <label>COD</label>
+                </div>
+                <div class="form-group mx-3">
+                    <input type="radio" id="online_payment" name="payment_type" value="online">
+                    <label>Online Payment</label>
+                </div>
+
+
+
+                <div class="form-group col-md-12 position-relative mt-5 justify-content-center" id="online_payment_form"
+                    style="display:none;">
+
+                    <div class="form-group m-3">
+                        <input type="text" class="form-control" placeholder="Card Number"  name="cardnumber">
+                    </div>
+                    <div class="form-group m-3">
+                        <input type="text" class="form-control" placeholder="Card Expiration"  name="cardexpiry">
+                    </div>
+                    <div class="form-group m-3">
+                        <input type="text" class="form-control" placeholder="Card CVV"  name="cardccv">
+                    </div>
+                    <div class="form-group m-3">
+                        <input type="text" class="form-control" placeholder="Cardholder Name" name="cardholdername">
+                    </div>
+                </div>
+
+                <div class="position-absolute justify-content-center m-5">
+                    <button type="submit" href="" class="btn btn-outline-success btn-lg btn-block">Check Out</button>
+                </div>
+
+                </form>
+
+            </div>
+        </div>
+</body>
+<script>
+
+    $("#checkoutform").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"/user/placeorder",
+            method:"post",
+            data:$('#checkoutform').serialize(),
+            success:(response)=>{
+                alert(response);
+            }
+        })
+    })
+
+
+    $(document).ready(function () {
+        $('input[name=payment_type]').click(function () {
+            if ($(this).val() == 'online') {
+                $('#online_payment_form').show();
+            } else {
+                $('#online_payment_form').hide();
+            }
+        });
+    });
+
+
+</script>
+</html>
