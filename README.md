@@ -1,0 +1,1 @@
+![photo](https://media.licdn.com/dms/image/v2/D5616AQG2JeYh-KMD9w/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1726652871733?e=1742428800&v=beta&t=4WMOSG0YYcKYbjJDjCl5kvjLGWfg8-M0YARcV0WKrWk)
